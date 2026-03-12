@@ -6,14 +6,120 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		D4201E9A2F3E41B2001C54EE /* nasin-nanpa.otf in Resources */ = {isa = PBXBuildFile; fileRef = D4201E992F3E41B2001C54EE /* nasin-nanpa.otf */; };
+		D4201E9B2F3E41B2001C54EE /* nasin-nanpa.otf in Resources */ = {isa = PBXBuildFile; fileRef = D4201E992F3E41B2001C54EE /* nasin-nanpa.otf */; };
+		D4201E9D2F3E5A54001C54EE /* linja-sike.otf in Resources */ = {isa = PBXBuildFile; fileRef = D4201E9C2F3E5A54001C54EE /* linja-sike.otf */; };
+		D4201E9E2F3E5A54001C54EE /* linja-sike.otf in Resources */ = {isa = PBXBuildFile; fileRef = D4201E9C2F3E5A54001C54EE /* linja-sike.otf */; };
+		D4201EA12F3E6559001C54EE /* sitelen_telo.otf in Resources */ = {isa = PBXBuildFile; fileRef = D4201E9F2F3E6559001C54EE /* sitelen_telo.otf */; };
+		D4201EA22F3E6559001C54EE /* sitelenselikiwenasuki.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D4201EA02F3E6559001C54EE /* sitelenselikiwenasuki.ttf */; };
+		D4201EA32F3E6559001C54EE /* sitelen_telo.otf in Resources */ = {isa = PBXBuildFile; fileRef = D4201E9F2F3E6559001C54EE /* sitelen_telo.otf */; };
+		D4201EA42F3E6559001C54EE /* sitelenselikiwenasuki.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D4201EA02F3E6559001C54EE /* sitelenselikiwenasuki.ttf */; };
+		D475A4052F4C2DC300866BF1 /* TOML in Frameworks */ = {isa = PBXBuildFile; productRef = D475A4042F4C2DC300866BF1 /* TOML */; };
+		D4AA50D12F5EBD5F00FE3A94 /* fairfax-pona.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D4AA50D02F5EBD5F00FE3A94 /* fairfax-pona.ttf */; };
+		D4AA50D22F5EBD5F00FE3A94 /* fairfax-pona.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D4AA50D02F5EBD5F00FE3A94 /* fairfax-pona.ttf */; };
+		D4AA50D42F5F767400FE3A94 /* FRT-siteren.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D4AA50D32F5F767400FE3A94 /* FRT-siteren.ttf */; };
+		D4AA50D52F5F767400FE3A94 /* FRT-siteren.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D4AA50D32F5F767400FE3A94 /* FRT-siteren.ttf */; };
+		D4AA50D72F5F768000FE3A94 /* sitelen.Kuwi.otf in Resources */ = {isa = PBXBuildFile; fileRef = D4AA50D62F5F768000FE3A94 /* sitelen.Kuwi.otf */; };
+		D4AA50D82F5F768000FE3A94 /* sitelen.Kuwi.otf in Resources */ = {isa = PBXBuildFile; fileRef = D4AA50D62F5F768000FE3A94 /* sitelen.Kuwi.otf */; };
+		D4AA50DE2F61FF7F00FE3A94 /* SitelenPonaModel.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = D4AA50DD2F61FF7F00FE3A94 /* SitelenPonaModel.mlpackage */; };
+		D4BD24D42F3D6AF600B55873 /* wakalito.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = D4BD24CD2F3D6AF600B55873 /* wakalito.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D4BD24D22F3D6AF600B55873 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D4BD24B32F3D6A3B00B55873 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D4BD24CC2F3D6AF600B55873;
+			remoteInfo = wakalito;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D4BD24D92F3D6AF600B55873 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				D4BD24D42F3D6AF600B55873 /* wakalito.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		D4201E992F3E41B2001C54EE /* nasin-nanpa.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "nasin-nanpa.otf"; path = "Fonts/nasin-nanpa.otf"; sourceTree = SOURCE_ROOT; };
+		D4201E9C2F3E5A54001C54EE /* linja-sike.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "linja-sike.otf"; sourceTree = "<group>"; };
+		D4201E9F2F3E6559001C54EE /* sitelen_telo.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = sitelen_telo.otf; sourceTree = "<group>"; };
+		D4201EA02F3E6559001C54EE /* sitelenselikiwenasuki.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = sitelenselikiwenasuki.ttf; sourceTree = "<group>"; };
+		D4AA50D02F5EBD5F00FE3A94 /* fairfax-pona.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fairfax-pona.ttf"; sourceTree = "<group>"; };
+		D4AA50D32F5F767400FE3A94 /* FRT-siteren.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FRT-siteren.ttf"; sourceTree = "<group>"; };
+		D4AA50D62F5F768000FE3A94 /* sitelen.Kuwi.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = sitelen.Kuwi.otf; sourceTree = "<group>"; };
+		D4AA50DD2F61FF7F00FE3A94 /* SitelenPonaModel.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; path = SitelenPonaModel.mlpackage; sourceTree = "<group>"; };
 		D4BD24BB2F3D6A3B00B55873 /* ilo sitelen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ilo sitelen.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4BD24CD2F3D6AF600B55873 /* wakalito.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = wakalito.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		D4201EA52F3E6637001C54EE /* Exceptions for "tp-dataset" folder in "ilo sitelen" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				LICENSE,
+				update_wordlist.sh,
+			);
+			target = D4BD24BA2F3D6A3B00B55873 /* ilo sitelen */;
+		};
+		D4201EAD2F469B79001C54EE /* Exceptions for "ilo sitelen" folder in "wakalito" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				App.icon,
+			);
+			target = D4BD24CC2F3D6AF600B55873 /* wakalito */;
+		};
+		D4BD24D52F3D6AF600B55873 /* Exceptions for "wakalito" folder in "wakalito" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = D4BD24CC2F3D6AF600B55873 /* wakalito */;
+		};
+		D4BD28352F3E1C9600B55873 /* Exceptions for "tp-dataset" folder in "wakalito" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				LICENSE,
+				update_wordlist.sh,
+			);
+			target = D4BD24CC2F3D6AF600B55873 /* wakalito */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		D4BD24BD2F3D6A3B00B55873 /* ilo sitelen */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				D4201EAD2F469B79001C54EE /* Exceptions for "ilo sitelen" folder in "wakalito" target */,
+			);
 			path = "ilo sitelen";
+			sourceTree = "<group>";
+		};
+		D4BD24CE2F3D6AF600B55873 /* wakalito */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				D4BD24D52F3D6AF600B55873 /* Exceptions for "wakalito" folder in "wakalito" target */,
+			);
+			path = wakalito;
+			sourceTree = "<group>";
+		};
+		D4BD25672F3D90D200B55873 /* tp-dataset */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				D4201EA52F3E6637001C54EE /* Exceptions for "tp-dataset" folder in "ilo sitelen" target */,
+				D4BD28352F3E1C9600B55873 /* Exceptions for "tp-dataset" folder in "wakalito" target */,
+			);
+			path = "tp-dataset";
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -23,16 +129,50 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D475A4052F4C2DC300866BF1 /* TOML in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D4BD24CA2F3D6AF600B55873 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D4201E982F3E419C001C54EE /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				D4201E9F2F3E6559001C54EE /* sitelen_telo.otf */,
+				D4201EA02F3E6559001C54EE /* sitelenselikiwenasuki.ttf */,
+				D4201E9C2F3E5A54001C54EE /* linja-sike.otf */,
+				D4201E992F3E41B2001C54EE /* nasin-nanpa.otf */,
+				D4AA50D02F5EBD5F00FE3A94 /* fairfax-pona.ttf */,
+				D4AA50D32F5F767400FE3A94 /* FRT-siteren.ttf */,
+				D4AA50D62F5F768000FE3A94 /* sitelen.Kuwi.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		D4AA50DA2F61F2FF00FE3A94 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				D4AA50DD2F61FF7F00FE3A94 /* SitelenPonaModel.mlpackage */,
+			);
+			path = models;
+			sourceTree = "<group>";
+		};
 		D4BD24B22F3D6A3B00B55873 = {
 			isa = PBXGroup;
 			children = (
+				D4AA50DA2F61F2FF00FE3A94 /* models */,
+				D4201E982F3E419C001C54EE /* Fonts */,
+				D4BD25672F3D90D200B55873 /* tp-dataset */,
 				D4BD24BD2F3D6A3B00B55873 /* ilo sitelen */,
+				D4BD24CE2F3D6AF600B55873 /* wakalito */,
 				D4BD24BC2F3D6A3B00B55873 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -41,6 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				D4BD24BB2F3D6A3B00B55873 /* ilo sitelen.app */,
+				D4BD24CD2F3D6AF600B55873 /* wakalito.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -55,20 +196,47 @@
 				D4BD24B72F3D6A3B00B55873 /* Sources */,
 				D4BD24B82F3D6A3B00B55873 /* Frameworks */,
 				D4BD24B92F3D6A3B00B55873 /* Resources */,
+				D4BD24D92F3D6AF600B55873 /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D4BD24D32F3D6AF600B55873 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				D4BD24BD2F3D6A3B00B55873 /* ilo sitelen */,
+				D4BD25672F3D90D200B55873 /* tp-dataset */,
+			);
+			name = "ilo sitelen";
+			packageProductDependencies = (
+				D475A4042F4C2DC300866BF1 /* TOML */,
+			);
+			productName = "ilo sitelen";
+			productReference = D4BD24BB2F3D6A3B00B55873 /* ilo sitelen.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D4BD24CC2F3D6AF600B55873 /* wakalito */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D4BD24D62F3D6AF600B55873 /* Build configuration list for PBXNativeTarget "wakalito" */;
+			buildPhases = (
+				D4BD24C92F3D6AF600B55873 /* Sources */,
+				D4BD24CA2F3D6AF600B55873 /* Frameworks */,
+				D4BD24CB2F3D6AF600B55873 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				D4BD24BD2F3D6A3B00B55873 /* ilo sitelen */,
+				D4BD24CE2F3D6AF600B55873 /* wakalito */,
+				D4BD25672F3D90D200B55873 /* tp-dataset */,
 			);
-			name = "ilo sitelen";
+			name = wakalito;
 			packageProductDependencies = (
 			);
-			productName = "ilo sitelen";
-			productReference = D4BD24BB2F3D6A3B00B55873 /* ilo sitelen.app */;
-			productType = "com.apple.product-type.application";
+			productName = wakalito;
+			productReference = D4BD24CD2F3D6AF600B55873 /* wakalito.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -78,9 +246,12 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 2620;
-				LastUpgradeCheck = 2620;
+				LastUpgradeCheck = 2630;
 				TargetAttributes = {
 					D4BD24BA2F3D6A3B00B55873 = {
+						CreatedOnToolsVersion = 26.2;
+					};
+					D4BD24CC2F3D6AF600B55873 = {
 						CreatedOnToolsVersion = 26.2;
 					};
 				};
@@ -94,12 +265,16 @@
 			);
 			mainGroup = D4BD24B22F3D6A3B00B55873;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				D475A4032F4C2DC300866BF1 /* XCRemoteSwiftPackageReference "swift-toml" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = D4BD24BC2F3D6A3B00B55873 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				D4BD24BA2F3D6A3B00B55873 /* ilo sitelen */,
+				D4BD24CC2F3D6AF600B55873 /* wakalito */,
 			);
 		};
 /* End PBXProject section */
@@ -109,6 +284,27 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4201E9A2F3E41B2001C54EE /* nasin-nanpa.otf in Resources */,
+				D4201E9E2F3E5A54001C54EE /* linja-sike.otf in Resources */,
+				D4201EA32F3E6559001C54EE /* sitelen_telo.otf in Resources */,
+				D4AA50D12F5EBD5F00FE3A94 /* fairfax-pona.ttf in Resources */,
+				D4AA50D42F5F767400FE3A94 /* FRT-siteren.ttf in Resources */,
+				D4AA50D72F5F768000FE3A94 /* sitelen.Kuwi.otf in Resources */,
+				D4201EA42F3E6559001C54EE /* sitelenselikiwenasuki.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D4BD24CB2F3D6AF600B55873 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D4201E9B2F3E41B2001C54EE /* nasin-nanpa.otf in Resources */,
+				D4201E9D2F3E5A54001C54EE /* linja-sike.otf in Resources */,
+				D4201EA12F3E6559001C54EE /* sitelen_telo.otf in Resources */,
+				D4AA50D82F5F768000FE3A94 /* sitelen.Kuwi.otf in Resources */,
+				D4AA50D52F5F767400FE3A94 /* FRT-siteren.ttf in Resources */,
+				D4AA50D22F5EBD5F00FE3A94 /* fairfax-pona.ttf in Resources */,
+				D4201EA22F3E6559001C54EE /* sitelenselikiwenasuki.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,10 +315,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4AA50DE2F61FF7F00FE3A94 /* SitelenPonaModel.mlpackage in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D4BD24C92F3D6AF600B55873 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D4BD24D32F3D6AF600B55873 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D4BD24CC2F3D6AF600B55873 /* wakalito */;
+			targetProxy = D4BD24D22F3D6AF600B55873 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		D4BD24C42F3D6A3C00B55873 /* Debug */ = {
@@ -184,6 +396,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -241,6 +454,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -249,13 +463,15 @@
 		D4BD24C72F3D6A3C00B55873 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = App;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2877RH94M9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "ilo-sitelen-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -281,13 +497,15 @@
 		D4BD24C82F3D6A3C00B55873 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = App;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2877RH94M9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "ilo-sitelen-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -303,6 +521,62 @@
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		D4BD24D72F3D6AF600B55873 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2877RH94M9;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = wakalito/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = wakalito;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "koteczek.ilo-sitelen.wakalito";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D4BD24D82F3D6AF600B55873 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2877RH94M9;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = wakalito/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = wakalito;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "koteczek.ilo-sitelen.wakalito";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
@@ -331,7 +605,35 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		D4BD24D62F3D6AF600B55873 /* Build configuration list for PBXNativeTarget "wakalito" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D4BD24D72F3D6AF600B55873 /* Debug */,
+				D4BD24D82F3D6AF600B55873 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D475A4032F4C2DC300866BF1 /* XCRemoteSwiftPackageReference "swift-toml" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mattt/swift-toml.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D475A4042F4C2DC300866BF1 /* TOML */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D475A4032F4C2DC300866BF1 /* XCRemoteSwiftPackageReference "swift-toml" */;
+			productName = TOML;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D4BD24B32F3D6A3B00B55873 /* Project object */;
 }
