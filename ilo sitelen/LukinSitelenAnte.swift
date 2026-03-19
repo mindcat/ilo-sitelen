@@ -14,7 +14,7 @@ struct LukinSitelenAnte: View {
     @Binding var selection: Int
     @Binding var isDrawingMode: Bool
     
-    @State private var playgroundText: String = "jan li pana e moku tawa sina"
+    @State private var playgroundText: String = "jan li pana e moku tawa sina. jan pali pi ma ale, o kama wan a!"
     
     var body: some View {
         NavigationStack {
@@ -48,6 +48,7 @@ struct LukinSitelenAnte: View {
                             PreviewSection(title: "seli kiwen asuki", view: dictManager.tokiRenderer(playgroundText, lang: .tok, font: .seli))
                             PreviewSection(title: "sitelen leko", view: dictManager.tokiRenderer(playgroundText, lang: .tok, font: .leko))
                             PreviewSection(title: "F R T sitelen", view: dictManager.tokiRenderer(playgroundText, lang: .tok, font: .frt))
+                            PreviewSection(title: "sitelen lasin lukin", view: dictManager.tokiRenderer(playgroundText, lang: .tok, font: .lasin))
                         }
                         .padding()
                         .background(.ultraThinMaterial)

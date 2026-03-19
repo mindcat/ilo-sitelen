@@ -23,6 +23,8 @@
 		D4AA50D72F5F768000FE3A94 /* sitelen.Kuwi.otf in Resources */ = {isa = PBXBuildFile; fileRef = D4AA50D62F5F768000FE3A94 /* sitelen.Kuwi.otf */; };
 		D4AA50D82F5F768000FE3A94 /* sitelen.Kuwi.otf in Resources */ = {isa = PBXBuildFile; fileRef = D4AA50D62F5F768000FE3A94 /* sitelen.Kuwi.otf */; };
 		D4AA50DE2F61FF7F00FE3A94 /* SitelenPonaModel.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = D4AA50DD2F61FF7F00FE3A94 /* SitelenPonaModel.mlpackage */; };
+		D4AA50FD2F6298F800FE3A94 /* sitelen_pona_pi_lasin_lukin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D4AA50FC2F6298F800FE3A94 /* sitelen_pona_pi_lasin_lukin.ttf */; };
+		D4AA50FE2F6298F800FE3A94 /* sitelen_pona_pi_lasin_lukin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D4AA50FC2F6298F800FE3A94 /* sitelen_pona_pi_lasin_lukin.ttf */; };
 		D4BD24D42F3D6AF600B55873 /* wakalito.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = D4BD24CD2F3D6AF600B55873 /* wakalito.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
@@ -59,6 +61,7 @@
 		D4AA50D32F5F767400FE3A94 /* FRT-siteren.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FRT-siteren.ttf"; sourceTree = "<group>"; };
 		D4AA50D62F5F768000FE3A94 /* sitelen.Kuwi.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = sitelen.Kuwi.otf; sourceTree = "<group>"; };
 		D4AA50DD2F61FF7F00FE3A94 /* SitelenPonaModel.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; path = SitelenPonaModel.mlpackage; sourceTree = "<group>"; };
+		D4AA50FC2F6298F800FE3A94 /* sitelen_pona_pi_lasin_lukin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = sitelen_pona_pi_lasin_lukin.ttf; sourceTree = "<group>"; };
 		D4BD24BB2F3D6A3B00B55873 /* ilo sitelen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ilo sitelen.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4BD24CD2F3D6AF600B55873 /* wakalito.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = wakalito.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -153,6 +156,7 @@
 				D4AA50D02F5EBD5F00FE3A94 /* fairfax-pona.ttf */,
 				D4AA50D32F5F767400FE3A94 /* FRT-siteren.ttf */,
 				D4AA50D62F5F768000FE3A94 /* sitelen.Kuwi.otf */,
+				D4AA50FC2F6298F800FE3A94 /* sitelen_pona_pi_lasin_lukin.ttf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -289,6 +293,7 @@
 				D4201EA32F3E6559001C54EE /* sitelen_telo.otf in Resources */,
 				D4AA50D12F5EBD5F00FE3A94 /* fairfax-pona.ttf in Resources */,
 				D4AA50D42F5F767400FE3A94 /* FRT-siteren.ttf in Resources */,
+				D4AA50FE2F6298F800FE3A94 /* sitelen_pona_pi_lasin_lukin.ttf in Resources */,
 				D4AA50D72F5F768000FE3A94 /* sitelen.Kuwi.otf in Resources */,
 				D4201EA42F3E6559001C54EE /* sitelenselikiwenasuki.ttf in Resources */,
 			);
@@ -303,6 +308,7 @@
 				D4201EA12F3E6559001C54EE /* sitelen_telo.otf in Resources */,
 				D4AA50D82F5F768000FE3A94 /* sitelen.Kuwi.otf in Resources */,
 				D4AA50D52F5F767400FE3A94 /* FRT-siteren.ttf in Resources */,
+				D4AA50FD2F6298F800FE3A94 /* sitelen_pona_pi_lasin_lukin.ttf in Resources */,
 				D4AA50D22F5EBD5F00FE3A94 /* fairfax-pona.ttf in Resources */,
 				D4201EA22F3E6559001C54EE /* sitelenselikiwenasuki.ttf in Resources */,
 			);

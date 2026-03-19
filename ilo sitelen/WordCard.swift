@@ -47,7 +47,7 @@ struct WordCard: View {
             VStack(alignment: .trailing, spacing: 6) {
                 HStack(spacing: 6) {
                     if let conf = confidence, conf >= 0 {
-                        Text("\(Int(conf * 100))%")
+                        Text("\(conf)")
                             .font(.caption2)
                             .fontWeight(.bold)
                             .padding(.horizontal, 8)

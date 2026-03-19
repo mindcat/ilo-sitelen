@@ -82,45 +82,47 @@ class DictionaryManager: ObservableObject {
         return words.first { $0.lemma == lemma }
     }
     
-    func tokiRenderer(_ text: String, lang: DisplayLanguage, font: SitelenFont) -> Text {
-        let words = text.split(separator: " ")
-        if words.isEmpty { return Text("") }
-        
-        return words.reduce(Text("")) { (result, substring) -> Text in
-            let wordStr = String(substring)
-            let cleanWord = wordStr.lowercased().trimmingCharacters(in: .punctuationCharacters)
-            let dictWord = find(cleanWord)
+    func tokiRenderer(_ text: String, lang: DisplayLanguage, font: SitelenFont, fontSize: CGFloat = 24) -> Text {
+            let words = text.split(separator: " ")
+            if words.isEmpty { return Text("") }
             
-            var output = wordStr
-            var useSitelenFont = false
-            
-            if let dictWord = dictWord {
-                switch lang {
-                case .kanata:
-                    let k = dictWord.script?["kanata"] ?? ""
-                    output = k.isEmpty ? wordStr : k
-                case .anku:
-                    let a = dictWord.script?["anku"] ?? ""
-                    output = a.isEmpty ? wordStr : a
-                case .tok:
-                    output = wordStr
-                    useSitelenFont = true
-                case .lasina, .en:
-                    output = wordStr
+            return words.reduce(Text("")) { (result, substring) -> Text in
+                let wordStr = String(substring)
+                let cleanWord = wordStr.lowercased().trimmingCharacters(in: .punctuationCharacters)
+                let dictWord = find(cleanWord)
+                
+                var output = wordStr
+                var useSitelenFont = false
+                
+                if let dictWord = dictWord {
+                    switch lang {
+                    case .kanata:
+                        let k = dictWord.script?["kanata"] ?? ""
+                        output = k.isEmpty ? wordStr : k
+                    case .anku:
+                        let a = dictWord.script?["anku"] ?? ""
+                        output = a.isEmpty ? wordStr : a
+                    case .tok:
+                        output = wordStr
+                        useSitelenFont = true
+                    case .lasina, .en:
+                        output = wordStr
+                    }
                 }
+                
+                var textSegment = Text(output)
+                
+                if useSitelenFont {
+                    textSegment = textSegment.font(.custom(font.rawValue, size: fontSize))
+                } else if lang == .kanata || lang == .anku {
+                    textSegment = textSegment.font(.system(size: fontSize * (20.0/24.0)))
+                } else {
+                    textSegment = textSegment.font(.system(size: fontSize))
+                }
+                
+                return Text("\(result)\(textSegment) ")
             }
-            
-            var textSegment = Text(output)
-            
-            if useSitelenFont {
-                textSegment = textSegment.font(.custom(font.rawValue, size: 24))
-            } else if lang == .kanata || lang == .anku {
-                textSegment = textSegment.font(.system(size: 20))
-            }
-            
-            return Text("\(result)\(textSegment) ")
         }
-    }
     
     func localizedText(_ lasina: String, _ en: String, lang: DisplayLanguage, font: SitelenFont) -> Text {
         if lang == .en {
@@ -178,6 +180,7 @@ enum SitelenFont: String, CaseIterable, Identifiable {
     case fairfax = "Fairfax Pona"
     case leko = "sitelenleko"
     case frt = "-Regular"
+    case lasin = "sitelen_pona_pi_lasin_lukin"
     
     var id: Self { self }
     
@@ -190,6 +193,7 @@ enum SitelenFont: String, CaseIterable, Identifiable {
         case .fairfax: return "fairfax pona"
         case .leko: return "sitelen leko"
         case .frt: return "してれん"
+        case .lasin: return "sitelen lasin lukin"
         }
     }
 }

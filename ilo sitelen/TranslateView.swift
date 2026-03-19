@@ -14,7 +14,6 @@ struct TranslateView: View {
     
     @Environment(\.colorScheme) var colorScheme
     
-    // Derived language labels
     var topLanguage: String { isEnglishTop ? "English (US)" : "toki pona" }
     var bottomLanguage: String { isEnglishTop ? "toki pona" : "English (US)" }
     
@@ -23,10 +22,9 @@ struct TranslateView: View {
     var body: some View {
         VStack(spacing: 16) {
             
-            // MARK: - Custom Header
             HStack {
-                // Left side: List menu placeholder
-                Button(action: { /* Placeholder */ }) {
+                // list menu placeholder
+                Button(action: {  }) {
                     Image(systemName: "list.bullet")
                         .font(.system(size: 18, weight: .semibold))
                         .foregroundColor(.primary)
@@ -37,16 +35,14 @@ struct TranslateView: View {
                 
                 Spacer()
                 
-                // Center Title
                 Text(isEnglishTop ? "Translate" : "ilo toki ante")
                     .font(.title2)
                     .fontWeight(.bold)
                 
                 Spacer()
                 
-                // Right side: Ellipsis & Done Button
                 HStack(spacing: 12) {
-                    Button(action: { /* Placeholder */ }) {
+                    Button(action: { /* placeholder */ }) {
                         Image(systemName: "ellipsis")
                             .font(.system(size: 18, weight: .semibold))
                             .foregroundColor(.primary)
@@ -55,9 +51,8 @@ struct TranslateView: View {
                             .clipShape(Circle())
                     }
                     
-                    // Cyan Checkmark "Done" Button
                     Button(action: {
-                        isInputFocused = false // Closes the keyboard
+                        isInputFocused = false
                     }) {
                         Image(systemName: "checkmark")
                             .font(.system(size: 18, weight: .bold))
@@ -71,9 +66,7 @@ struct TranslateView: View {
             .padding(.horizontal)
             .padding(.top, 8)
             
-            // MARK: - Translation Card
             VStack(spacing: 0) {
-                // Top Box (Input)
                 VStack(alignment: .leading, spacing: 12) {
                     Button(action: {}) {
                         HStack(spacing: 4) {
@@ -93,7 +86,7 @@ struct TranslateView: View {
                             .fontWeight(.bold)
                             .foregroundColor(.primary)
                             .tint(targetColor)
-                            .focused($isInputFocused) // Binds the keyboard focus
+                            .focused($isInputFocused)
                         
                         Spacer()
                         
@@ -129,7 +122,6 @@ struct TranslateView: View {
                 }
                 .padding()
                 
-                // Swap Button & Divider
                 ZStack {
                     Divider()
                     
@@ -148,7 +140,6 @@ struct TranslateView: View {
                     }
                 }
                 
-                // Bottom Box (Output)
                 VStack(alignment: .leading, spacing: 12) {
                     Button(action: {}) {
                         HStack(spacing: 4) {
@@ -191,7 +182,6 @@ struct TranslateView: View {
                     }
                     .frame(minHeight: 100, alignment: .top)
                     
-                    // Bottom Actions
                     HStack(spacing: 24) {
                         Button(action: {}) { Image(systemName: "arrow.up.left.and.arrow.down.right") }
                         Button(action: {}) { Image(systemName: "star") }

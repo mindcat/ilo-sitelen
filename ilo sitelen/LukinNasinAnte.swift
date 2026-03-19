@@ -17,6 +17,15 @@ struct LukinNasinAnte: View {
     @AppStorage("wakalito") var wakalito: Bool = true
     @Binding var showModelInput: Bool
     
+    @AppStorage("glassBlurRadius") private var glassBlurRadius: Double = 12.0
+    @AppStorage("showFontNasin") private var showFontNasin = true
+    @AppStorage("showFontLinja") private var showFontLinja = true
+    @AppStorage("showFontTelo") private var showFontTelo = true
+    @AppStorage("showFontSeli") private var showFontSeli = true
+    @AppStorage("showFontFairfax") private var showFontFairfax = true
+    @AppStorage("showFontLeko") private var showFontLeko = true
+    @AppStorage("showFontFrt") private var showFontFrt = true
+    
     var body: some View {
         NavigationStack {
             Form {
@@ -27,6 +36,20 @@ struct LukinNasinAnte: View {
                     Toggle(isOn: $showModelInput) {
                         dictManager.localizedText("lukin ilo lawa wan", "Show model input", lang: displayLanguage, font: sitelenFont)
                     }
+                }
+                
+                Section(header: Text("WordCard Settings")) {
+                    VStack(alignment: .leading) {
+                        Text("Background Blur Intensity")
+                        Slider(value: $glassBlurRadius, in: 0...30, step: 1)
+                    }
+                    Toggle("nasin nanpa", isOn: $showFontNasin)
+                    Toggle("linja sike", isOn: $showFontLinja)
+                    Toggle("sitelen telo", isOn: $showFontTelo)
+                    Toggle("sitelen seli kiwen", isOn: $showFontSeli)
+                    Toggle("fairfax pona", isOn: $showFontFairfax)
+                    Toggle("sitelen leko", isOn: $showFontLeko)
+                    Toggle("してれん (frt)", isOn: $showFontFrt)
                 }
             }
             .navigationTitle(dictManager.localizedText("nasin ante", "Settings", lang: displayLanguage, font: sitelenFont))

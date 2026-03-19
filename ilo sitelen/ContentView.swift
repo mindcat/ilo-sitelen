@@ -23,14 +23,12 @@ struct ContentView: View {
         TabView(selection: $selection) {
             
             Tab(value: 0) {
-                NavigationStack {
-                    ZStack {
-                        Color(UIColor.systemGroupedBackground).ignoresSafeArea()
-                        ScrollView {
-                            LukinTokiAnte()
-                        }
-                    }
-                }
+                LukinTokiAnte(
+                    dictManager: dictManager,
+                    displayLanguage: $displayLanguage,
+                    sitelenFont: $sitelenFont,
+                    isDrawingMode: $isDrawingMode,
+                    selection: $selection)
             } label: {
                 Label(
                     title: { dictManager.localizedText("ilo toki ante", "Translator", lang: displayLanguage, font: sitelenFont) },

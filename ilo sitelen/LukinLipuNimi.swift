@@ -22,6 +22,9 @@ struct LukinLipuNimi: View {
     @State private var searchText: String = ""
     @State private var pkCanvas = PKCanvasView()
     
+    @State private var selectedWord: WordData? = nil
+    @AppStorage("glassBlurRadius") private var glassBlurRadius: Double = 12.0
+    
     var searchResults: [WordData] {
         var results = dictManager.words
         
@@ -113,21 +116,64 @@ struct LukinLipuNimi: View {
 
                     LazyVStack(spacing: 12) {
                         ForEach(searchResults) { word in
-                            WordCard(
-                                word: word,
-                                displayLanguage: displayLanguage,
-                                sitelenFont: sitelenFont,
-                                confidence: getConfidence(for: word.lemma)
-                            )
+                            Button(action: {
+                                withAnimation(.spring(response: 0.4, dampingFraction: 0.75)) {
+                                    selectedWord = word
+                                }
+                            }) {
+                                WordCard(
+                                    word: word,
+                                    displayLanguage: displayLanguage,
+                                    sitelenFont: sitelenFont,
+                                    confidence: getConfidence(for: word.lemma)
+                                )
+                            }
+                            .buttonStyle(.plain)
                         }
                     }
                     .padding()
                 }
+                .blur(radius: selectedWord != nil ? glassBlurRadius : 0)
+                
+                if selectedWord == nil {
+                                    Color.clear
+                                        .searchable(text: $searchText, prompt: dictManager.localizedString("alasa nimi...", "Search words...", lang: displayLanguage))
+                                }
+                
+                if let word = selectedWord {
+                    Color.black.opacity(0.001)
+                        .ignoresSafeArea()
+                        .onTapGesture {
+                            withAnimation(.spring(response: 0.4, dampingFraction: 0.75)) {
+                                selectedWord = nil
+                            }
+                        }
+                    
+                    WordDetailView(
+                        word: word,
+                        displayLanguage: displayLanguage,
+                        sitelenFont: sitelenFont,
+                        dictionaryMode: false
+                    )
+                    .transition(.opacity.combined(with: .scale(scale: 0.9)))
+                    .zIndex(1)
+                }
             }
-            .searchable(text: $searchText, prompt: dictManager.localizedString("alasa nimi...", "Search words...", lang: displayLanguage))
+//            .searchable(text: $searchText, prompt: dictManager.localizedString("alasa nimi...", "Search words...", lang: displayLanguage))
             .navigationTitle(dictManager.localizedText("lipu nimi", "Dictionary", lang: displayLanguage, font: sitelenFont))
             .toolbar {
-                MainToolbar(selection: $selection, isDrawingMode: $isDrawingMode, sitelenFont: $sitelenFont, displayLanguage: $displayLanguage)
+                MainToolbar(
+                    selection: $selection,
+                    isDrawingMode: $isDrawingMode,
+                    sitelenFont: $sitelenFont,
+                    displayLanguage: $displayLanguage,
+                    isWordSelected: selectedWord != nil,
+                    onDismissWord: {
+                        withAnimation(.spring(response: 0.4, dampingFraction: 0.75)) {
+                            selectedWord = nil
+                        }
+                    }
+                )
             }
         }
     }
