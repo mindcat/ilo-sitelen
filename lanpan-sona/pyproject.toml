@@ -1,0 +1,11 @@
+[project]
+name = "lanpan-sona"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "beautifulsoup4>=4.14.3",
+    "requests>=2.33.0",
+    "toml>=0.10.2",
+]

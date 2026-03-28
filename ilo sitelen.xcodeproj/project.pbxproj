@@ -100,6 +100,12 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		D480A3A32F776072008F7F41 /* sona */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			name = sona;
+			path = "lanpan-sona/sona";
+			sourceTree = "<group>";
+		};
 		D4BD24BD2F3D6A3B00B55873 /* ilo sitelen */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
@@ -172,6 +178,7 @@
 		D4BD24B22F3D6A3B00B55873 = {
 			isa = PBXGroup;
 			children = (
+				D480A3A32F776072008F7F41 /* sona */,
 				D4AA50DA2F61F2FF00FE3A94 /* models */,
 				D4201E982F3E419C001C54EE /* Fonts */,
 				D4BD25672F3D90D200B55873 /* tp-dataset */,
@@ -208,6 +215,7 @@
 				D4BD24D32F3D6AF600B55873 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
+				D480A3A32F776072008F7F41 /* sona */,
 				D4BD24BD2F3D6A3B00B55873 /* ilo sitelen */,
 				D4BD25672F3D90D200B55873 /* tp-dataset */,
 			);

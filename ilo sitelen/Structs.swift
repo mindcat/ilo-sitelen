@@ -9,6 +9,32 @@ import SwiftUI
 import TOML
 import Combine
 
+struct KuTranslation: Codable, Hashable {
+    let translation: String
+    let percentage: Int
+}
+
+struct LukaPonaEtymology: Codable, Hashable {
+    let language: String
+    let sign: String?
+}
+
+struct LukaPonaParams: Codable, Hashable {
+    let handshape: String
+    let orientation: String?
+    let placement: String?
+    let movement: String?
+}
+
+struct LukaPonaSign: Codable, Identifiable {
+    let id: String
+    let twohands: Bool
+    let mp4: String?
+    let etymology: [LukaPonaEtymology]?
+    let icons: String?
+    let parameters: LukaPonaParams?
+}
+
 struct WordData: Codable, Identifiable {
     let lemma: String
     let sitelenpona: [String]?
@@ -17,10 +43,19 @@ struct WordData: Codable, Identifiable {
     let categories: [String: [String]]?
     let definitions: [String: String]?
     
+    let definition_long: String?
+    let commentary: String?
+    let usage: String?
+    let ku: [KuTranslation]?
+    let audio: String?
+    let semantic: String?
+    let lukaPonaSigns: [LukaPonaSign]?
+    
     var id: String { lemma }
     
     enum CodingKeys: String, CodingKey {
         case lemma, sitelenpona, origin, script, categories, definitions
+        case definition_long, commentary, usage, ku, audio, semantic, lukaPonaSigns
     }
     
     var category: Category {
@@ -39,44 +74,93 @@ struct WordData: Codable, Identifiable {
     }
 }
 
+//struct WordData: Codable, Identifiable {
+//    let lemma: String
+//    let sitelenpona: [String]?
+//    let origin: [String: String]?
+//    let script: [String: String]?
+//    let categories: [String: [String]]?
+//    let definitions: [String: String]?
+//    
+//    var id: String { lemma }
+//    
+//    enum CodingKeys: String, CodingKey {
+//        case lemma, sitelenpona, origin, script, categories, definitions
+//    }
+//    
+//    var category: Category {
+//        if let sem = categories?["semantic"]?.first, let cat = Category(rawValue: sem) {
+//            return cat
+//        }
+//        return .unknown
+//    }
+//    
+//    func matches(_ query: String) -> Bool {
+//        let q = query.lowercased()
+//        let defMatch = definitions?.values.contains { $0.lowercased().contains(q) } ?? false
+//        let isoMatch = origin?["iso"]?.lowercased().contains(q) ?? false
+//        let catMatch = categories?["semantic"]?.contains { $0.lowercased().contains(q) } ?? false
+//        return lemma.contains(q) || defMatch || isoMatch || catMatch
+//    }
+//}
+
 class DictionaryManager: ObservableObject {
     @Published var words: [WordData] = []
-    
+        
     init() {
         loadWordsFromBundle()
     }
     
     func loadWordsFromBundle() {
-        let decoder = TOMLDecoder()
-        var loadedWords: [WordData] = []
-        var allURLs: [URL] = []
-        
-        if let subUrls = Bundle.main.urls(forResourcesWithExtension: "toml", subdirectory: "words") {
-            allURLs.append(contentsOf: subUrls)
-        }
-        if let rootUrls = Bundle.main.urls(forResourcesWithExtension: "toml", subdirectory: nil) {
-            allURLs.append(contentsOf: rootUrls)
+        guard let url = Bundle.main.url(forResource: "sona", withExtension: "json"),
+              let data = try? Data(contentsOf: url) else {
+            print("Could not locate sona.json in bundle")
+            return
         }
         
-        for url in allURLs {
-            let name = url.lastPathComponent
-            if name == "typst.toml" || name == "semantic.toml" || name == "usage.toml" { continue }
-            
-            do {
-                let content = try String(contentsOf: url, encoding: .utf8)
-                let word = try decoder.decode(WordData.self, from: content)
-                loadedWords.append(word)
-            } catch {
-            }
+        do {
+            self.words = try JSONDecoder().decode([WordData].self, from: data)
+        } catch {
+            print("Error decoding JSON: \(error)")
         }
-        
-        var uniqueWords = [String: WordData]()
-        for word in loadedWords {
-            uniqueWords[word.lemma] = word
-        }
-        
-        self.words = Array(uniqueWords.values).sorted { $0.lemma < $1.lemma }
     }
+//    @Published var words: [WordData] = []
+//    
+//    init() {
+//        loadWordsFromBundle()
+//    }
+//    
+//    func loadWordsFromBundle() {
+//        let decoder = TOMLDecoder()
+//        var loadedWords: [WordData] = []
+//        var allURLs: [URL] = []
+//        
+//        if let subUrls = Bundle.main.urls(forResourcesWithExtension: "toml", subdirectory: "words") {
+//            allURLs.append(contentsOf: subUrls)
+//        }
+//        if let rootUrls = Bundle.main.urls(forResourcesWithExtension: "toml", subdirectory: nil) {
+//            allURLs.append(contentsOf: rootUrls)
+//        }
+//        
+//        for url in allURLs {
+//            let name = url.lastPathComponent
+//            if name == "typst.toml" || name == "semantic.toml" || name == "usage.toml" { continue }
+//            
+//            do {
+//                let content = try String(contentsOf: url, encoding: .utf8)
+//                let word = try decoder.decode(WordData.self, from: content)
+//                loadedWords.append(word)
+//            } catch {
+//            }
+//        }
+//        
+//        var uniqueWords = [String: WordData]()
+//        for word in loadedWords {
+//            uniqueWords[word.lemma] = word
+//        }
+//        
+//        self.words = Array(uniqueWords.values).sorted { $0.lemma < $1.lemma }
+//    }
     
     func find(_ lemma: String) -> WordData? {
         return words.first { $0.lemma == lemma }

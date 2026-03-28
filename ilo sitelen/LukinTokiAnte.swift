@@ -14,7 +14,7 @@ struct LukinTokiAnte: View {
     @State private var showFullscreenOutput: Bool = false
     @State private var selectedWord: WordData? = nil
     
-    // Dictionary Mode State
+    // i really need to refactor dictionary manager and toki render to support all my plans.... TECHNICAL DEBT PILING UP
     @State private var isDictionaryMode: Bool = false
     @State private var sheetDetent: PresentationDetent = .fraction(0.45)
     
@@ -33,18 +33,28 @@ struct LukinTokiAnte: View {
     
     func getWordData(for token: String) -> WordData {
         let cleanToken = token.lowercased().trimmingCharacters(in: .punctuationCharacters)
-        if let dictWord = dictManager.find(cleanToken) {
+        
+        if let dictWord = dictManager.words.first(where: { $0.lemma == cleanToken }) {
             return dictWord
         }
         
         let isProper = token.first?.isUppercase ?? false
+        
         return WordData(
             lemma: cleanToken,
             sitelenpona: nil,
             origin: ["iso": isProper ? "Proper Noun" : "Unknown Word"],
             script: ["kanata": "ᕐ" + token, "anku": token],
             categories: ["semantic": [isProper ? "people" : "unknown"]],
-            definitions: ["en": isProper ? "A proper noun, likely a name or place." : "This word is not recognized in the current dictionary."]
+            definitions: ["en": isProper ? "A proper noun, likely a name or place." : "This word is not recognized in the current dictionary."],
+            
+            definition_long: nil,
+            commentary: nil,
+            usage: nil,
+            ku: nil,
+            audio: nil,
+            semantic: nil,
+            lukaPonaSigns: nil
         )
     }
     

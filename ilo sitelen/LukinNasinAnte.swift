@@ -26,15 +26,20 @@ struct LukinNasinAnte: View {
     @AppStorage("showFontLeko") private var showFontLeko = true
     @AppStorage("showFontFrt") private var showFontFrt = true
     
+    @AppStorage("showLukaPona") private var showLukaPona = true
+    
     var body: some View {
         NavigationStack {
             Form {
                 Section(header: dictManager.localizedText("nasin ante", "Options", lang: displayLanguage, font: sitelenFont)) {
                     Toggle(isOn: $wakalito) {
-                        dictManager.localizedText("wakalito", "wakalito", lang: displayLanguage, font: sitelenFont)
+                        dictManager.localizedText("ilo sitelen luka ilo Wakalito", "wakalito", lang: displayLanguage, font: sitelenFont)
                     }
                     Toggle(isOn: $showModelInput) {
-                        dictManager.localizedText("lukin ilo lawa wan", "Show model input", lang: displayLanguage, font: sitelenFont)
+                        dictManager.localizedText("sina wile ale wile lukin ilo lawa", "show glyph recognition model input", lang: displayLanguage, font: sitelenFont)
+                    }
+                    Toggle(isOn: $showLukaPona) {
+                        dictManager.localizedText("sina wile ale wile lukin luka pona", "show luka pona", lang: displayLanguage, font: sitelenFont)
                     }
                 }
                 

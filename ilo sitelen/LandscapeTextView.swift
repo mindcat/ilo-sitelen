@@ -52,7 +52,7 @@ struct LandscapeTextView: View {
                     Spacer()
                     
                     Button(action: {
-                        // TODO: Phase 4 Audio
+                        // whisper model or something??? idek. i might look for spanish models and see if i can trick them to sound toki pona
                     }) {
                         Image(systemName: "speaker.wave.2.circle.fill")
                             .font(.system(size: 64))

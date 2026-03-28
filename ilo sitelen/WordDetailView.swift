@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AVFoundation
 
 struct WordDetailView: View {
     let word: WordData
@@ -20,6 +21,9 @@ struct WordDetailView: View {
     @AppStorage("showFontFairfax") private var showFontFairfax = true
     @AppStorage("showFontLeko") private var showFontLeko = true
     @AppStorage("showFontFrt") private var showFontFrt = true
+    @AppStorage("showLukaPona") private var showLukaPona = true
+    @State private var audioPlayer: AVAudioPlayer?
+    
     
     var body: some View {
         ScrollView {
@@ -56,10 +60,39 @@ struct WordDetailView: View {
                         Spacer()
                         
                         HStack(spacing: 12) {
-                            Button(action: {}) {
-                                Image(systemName: "speaker.wave.2.circle.fill")
-                                    .font(.system(size: 32))
-                                    .foregroundStyle(word.category.color)
+                            
+                            Spacer()
+                            
+                            HStack(spacing: 6) {
+                                if let usage = word.usage {
+                                    Text("\(usage)")
+                                }
+                                
+                                if let iso = word.origin?["iso"] {
+                                    if word.usage != nil {
+                                        Text("•").foregroundStyle(.secondary.opacity(0.5))
+                                    }
+                                    Text(iso.uppercased())
+                                }
+                            }
+                            .font(.caption2).bold()
+                            .padding(.horizontal, 10)
+                            .padding(.vertical, 6)
+                            .background(Color.primary.opacity(0.05))
+                            .foregroundStyle(.secondary)
+                            .clipShape(Capsule())
+                            
+                            Spacer()
+                            
+                            if let audioFile = word.audio {
+                                Button {
+                                    playAudio(filename: audioFile)
+                                } label: {
+                                    Image(systemName: "speaker.wave.2.circle.fill")
+                                        .font(.system(size: 32))
+                                        .foregroundStyle(word.category.color)
+                                        .padding(.top, 4)
+                                }
                             }
                             
                             Link(destination: URL(string: "https://sona.pona.la/wiki/\(word.lemma)")!) {
@@ -89,71 +122,93 @@ struct WordDetailView: View {
                         .padding(.horizontal)
                     }
                     
-                    // Replaced solid grey colors with transparent primary for layering
-                    VStack(alignment: .leading, spacing: 12) {
-                        Text("lipamanka semantic space")
-                            .font(.headline)
-                            .foregroundStyle(word.category.color)
-                        
-                        Text("This is a placeholder for the lipamanka semantic space. It will likely be at least a paragraph long, detailing the intricate nuances, common usage contexts, and specific boundaries of this word's meaning in relation to others within the toki pona vocabulary.")
-                            .font(.body)
-                            .foregroundStyle(.primary.opacity(0.8))
-                            .multilineTextAlignment(.leading)
+                    if let semanticSpace = word.semantic {
+                        VStack(alignment: .leading, spacing: 12) {
+                            HStack {
+                                Text("lipamanka semantic space")
+                                    .font(.headline)
+                                    .foregroundStyle(word.category.color)
+                                Link(destination: URL(string: "https://lipamanka.gay/essays/dictionary#\(word.lemma)")!) {
+                                    Image(systemName: "arrow.up.forward.app")
+                                        .font(.subheadline)
+                                        .foregroundStyle(.secondary)
+                                }
+                                Spacer()
+                            }
+                            
+                            Text(semanticSpace)
+                                .font(.body)
+                                .foregroundStyle(.primary.opacity(0.8))
+                                .multilineTextAlignment(.leading)
+                        }
+                        .padding()
+                        .frame(maxWidth: .infinity, alignment: .leading)
+//                        .background(Color.primary.opacity(0.05))
+//                        .clipShape(RoundedRectangle(cornerRadius: 16))
                     }
-                    .padding()
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .background(Color.primary.opacity(0.05))
-                    .clipShape(RoundedRectangle(cornerRadius: 16))
-                    .padding(.horizontal)
                     
-                    HStack(spacing: 16) {
-                        VStack(alignment: .leading, spacing: 8) {
-                            Text("ku translations")
-                                .font(.caption).bold().foregroundStyle(.secondary)
-                            Text("placeholder, translation, words, go, here")
-                                .font(.subheadline)
+                    
+                    if let ku = word.ku, !ku.isEmpty {
+                        VStack(alignment: .leading, spacing: 12) {
+                            Text("ku usage")
+                                .font(.headline)
+                                .foregroundStyle(word.category.color)
+                                    .padding(.horizontal)
+                            
+                            ScrollView(.horizontal, showsIndicators: false) {
+                                HStack(spacing: 8) {
+                                    ForEach(ku, id: \.self) { ku_item in
+                                        HStack(spacing: 4) {
+                                            Text(ku_item.translation)
+                                                .font(.subheadline)
+                                            Text("\(ku_item.percentage)%")
+                                                .font(.system(size: 10, weight: .bold))
+                                                .padding(8)
+                                                .background(word.category.color.opacity(0.2))
+                                                .clipShape(Capsule())
+                                        }
+                                        .padding(.vertical, 6)
+                                        .padding(.horizontal, 10)
+                                        .background(Color.primary.opacity(0.05))
+                                        .clipShape(Capsule())
+                                    }
+                                }
+                            }
+                            
                         }
                         .frame(maxWidth: .infinity, alignment: .leading)
-                        .padding()
-                        .background(Color.primary.opacity(0.05))
-                        .clipShape(RoundedRectangle(cornerRadius: 16))
-                        
-                        VStack(alignment: .center, spacing: 8) {
-                            Text("ku recognizability")
-                                .font(.caption).bold().foregroundStyle(.secondary)
-                                .multilineTextAlignment(.center)
-                            Text("84%")
-                                .font(.title2).bold()
-                                .foregroundStyle(word.category.color)
+//                        .padding(.horizontal) # I WILL DEAL W THIS UI ANNOYANCE LATER
+//                        .background(Color.primary.opacity(0.05))
+//                        .clipShape(RoundedRectangle(cornerRadius: 16))
+                    }
+                    
+                    if let comm = word.commentary, !comm.isEmpty {
+                        VStack(alignment: .leading, spacing: 12) {
+                            HStack {
+                                Text("lipamanka semantic space")
+                                    .font(.headline)
+                                    .foregroundStyle(word.category.color)
+                                Link(destination: URL(string: "https://linku.la/words/\(word.lemma)")!) {
+                                    Image(systemName: "arrow.up.forward.app")
+                                        .font(.subheadline)
+                                        .foregroundStyle(.primary)
+                                }
+                                Spacer()
+                            }
+                            
+                            Text(comm)
+                                .font(.body)
+                                .foregroundStyle(.primary.opacity(0.8))
+                                .multilineTextAlignment(.leading)
                         }
                         .padding()
-                        .background(Color.primary.opacity(0.05))
-                        .clipShape(RoundedRectangle(cornerRadius: 16))
+                        .frame(maxWidth: .infinity, alignment: .leading)
                     }
-                    .padding(.horizontal)
                     
-                    VStack(alignment: .leading, spacing: 12) {
-                        Text("luka pona")
-                            .font(.headline)
-                            .foregroundStyle(word.category.color)
-                        
-                        RoundedRectangle(cornerRadius: 12)
-                            .fill(Color.primary.opacity(0.05))
-                            .frame(height: 200)
-                            .overlay(
-                                Image(systemName: "hand.wave")
-                                    .font(.system(size: 48))
-                                    .foregroundStyle(.secondary)
-                            )
-                        
-                        Text("Placeholder description for the luka pona sign. This explains the physical movement required to produce the sign accurately.")
-                            .font(.subheadline)
-                            .foregroundStyle(.primary.opacity(0.8))
+                    if showLukaPona, let signs = word.lukaPonaSigns, !signs.isEmpty {
+                        LukaPonaSignCard(signs: signs, categoryColor: word.category.color).padding()
                     }
-                    .padding()
-                    .background(Color.primary.opacity(0.05))
-                    .clipShape(RoundedRectangle(cornerRadius: 16))
-                    .padding(.horizontal)
+                    
                     
                 }
                 .padding(.vertical, 24)
@@ -168,7 +223,118 @@ struct WordDetailView: View {
             .padding(20)
         }
     }
+
+    private func playAudio(filename: String) {
+        let name = (filename as NSString).deletingPathExtension
+        guard let url = Bundle.main.url(forResource: name, withExtension: "mp3") else { return }
+        
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: url)
+            audioPlayer?.play()
+        } catch {
+            print("Error playing audio: \(error.localizedDescription)")
+        }
+    }
 }
+
+struct LukaPonaSignCard: View {
+    let signs: [LukaPonaSign]
+    let categoryColor: Color
+    
+    var body: some View {
+        VStack(alignment: .leading, spacing: 16) {
+            
+            Text("luka pona")
+                .font(.headline)
+                .foregroundStyle(categoryColor)
+            
+            if let firstMp4 = signs.compactMap({ $0.mp4 }).first {
+                LoopingVideoPlayer(filename: firstMp4)
+                    .frame(height: 200)
+                    .clipShape(RoundedRectangle(cornerRadius: 12))
+            }
+            
+            VStack(alignment: .leading, spacing: 16) {
+                
+                ForEach(signs) { sign in
+                    VStack(alignment: .leading, spacing: 8) {
+                        
+                        Text("gloss: \(sign.id)")
+                            .font(.headline)
+                            .foregroundStyle(categoryColor)
+                        
+                        if let params = sign.parameters {
+                                HStack(spacing: 8) {
+                                    
+                                    HStack(spacing: -2) {
+                                        Image(systemName: "hand.wave.fill")
+                                        if sign.twohands {
+                                            Image(systemName: "hand.wave.fill")
+                                        }
+                                    }
+                                    .foregroundStyle(.secondary)
+                                    
+                                    HStack(spacing: 2) {
+                                        Image(systemName: "hand.point.up")
+                                        Text(params.handshape)
+                                    }
+                                    
+                                    if let orientation = params.orientation {
+                                        HStack(spacing: 2) {
+                                            Image(systemName: "rotate.3d")
+                                            Text(orientation)
+                                        }
+                                    }
+                                    
+                                    if let placement = params.placement {
+                                        HStack(spacing: 2) {
+                                            Image(systemName: "viewfinder")
+                                            Text(placement)
+                                        }
+                                    }
+                                    
+                                    if let movement = params.movement {
+                                        HStack(spacing: 2) {
+                                            Image(systemName: "move.3d")
+                                            Text(movement)
+                                        }
+                                    }
+                                }
+                                .font(.caption)
+                                .foregroundStyle(.secondary)
+                            }
+                        
+                        if let icons = sign.icons, !icons.isEmpty {
+                            Text(icons)
+                                .font(.subheadline)
+                                .foregroundStyle(.primary.opacity(0.8))
+                        }
+                        
+                        if let etymologies = sign.etymology, !etymologies.isEmpty {
+                            Text(buildEtymologyString(from: etymologies))
+                                .font(.caption)
+                                .foregroundStyle(.secondary)
+                        }
+                    }
+                    
+                    if sign.id != signs.last?.id {
+                        Divider()
+                            .padding(.vertical, 4)
+                    }
+                }
+            }
+        }
+        .padding()
+        .background(Color.primary.opacity(0.05))
+        .clipShape(RoundedRectangle(cornerRadius: 16))
+    }
+    
+    private func buildEtymologyString(from etymologies: [LukaPonaEtymology]) -> String {
+        let mapped = etymologies.compactMap { "\($0.sign ?? "Unknown") (\($0.language))" }
+        return "Etymology: " + mapped.joined(separator: ", ")
+    }
+}
+
 
 struct FontPreviewBubble: View {
     let word: String
